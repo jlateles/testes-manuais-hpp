@@ -28,7 +28,7 @@ O que não vai ser testado no momento:
 ## 4. Pré-requisitos gerais
   - O paciente deve possuir cadastro prévio com CPF e senha
   - Deve haver orçamentos associados ao CPF do paciente para exibição nas listagens
----
+
 ## 5. Ferramentas Utilizadas
   - Navegador Google Chrome / Edge
   - Ferramentas de inspeção do navegador (DevTools)
