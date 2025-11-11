@@ -142,6 +142,93 @@
 | -------------------------------------------- |
 | (print do e-mail com imagens ausentes)        |
 
+-----
+
+**Bug 05: Pagamento personalizado não exibe informações completas**
+
+| **ID**    | **Descrição**                                                                                                                                                                                                                                                                                      |
+| -------    | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  BUG-005   | Quando utilizado o pagamento personalizado (com múltiplos cartões e/ou PIX), as informações de pagamento não estão sendo exibidas corretamente na área do paciente e na área do admin. O sistema não mostra a quantidade de parcelas de cada cartão de crédito utilizado (seja em 2 ou 3 cartões). |
+
+
+| **Severidade do Bug** | **Prioridade de Correção** | **Status** |
+|  -------------------  |  ------------------------  |  --------  |
+|          Alta         |            Alta            | Corrigido   |
+
+| **Passo a passo para simular o bug**                                        |
+| --------------------------------------------------------------------------  |
+| 1. Criar um orçamento e selecionar a opção de pagamento personalizado        |
+| 2. Dividir o pagamento em múltiplos cartões (ex: 2 ou 3 cartões) e/ou PIX    |
+| 3. Confirmar o pagamento                                                     |
+| 4. Acessar a área do paciente e a área de admin                              |
+| 5. Verificar as informações de pagamento exibidas no card 'Detalhe pagamento'  |
+
+|                                                         **Comportamento Esperado**                                                        |                                             **Comportamento Obtido**                                            |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| O sistema deve exibir todas as informações do pagamento, incluindo o número de parcelas de cada cartão e o método de pagamento utilizado. | As informações de parcelamento e método de pagamento não são exibidas na área do paciente nem na área de admin. |
+
+| **Ambiente**                     |
+| -------------------------------- |
+| Áreas de Paciente e Admin       |
+| Navegador: Google Chrome         |
+| Sistema: Windows 11              |
+
+
+|              **Funcionalidade Afetada**             |                     **Caso de Teste Relacionado**                    |
+|  -------------------------------------------------  |  ------------------------------------------------------------------  |
+| Pagamento CC e personalizados (múltiplos cartões    | CT: Validar exibição das informações de pagamento personalizado      |
+
+|                               **Evidência(s)**                              |
+| ------------------------------------------------------------------------- |
+| (prints da área de admin e paciente sem as informações de pagamento)       |
+
+----------
+
+**Bug 06: Ordenação incorreta da listagem de orçamentos na área de paciente**
+
+| **ID**  | **Descrição**                                                                                                                                                                                                                                                                                                                                          |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BUG-006 | O critério de ordenação da listagem de orçamentos na área de **Paciente** não está seguindo a ordem decrescente por data. O sistema exibe orçamentos mais antigos antes dos mais recentes, dificultando a visualização. A recomendação é ordenar os orçamentos do mais recente para o mais antigo, como já ocorre em parte da área de admin. |
+
+| **Severidade do Bug** | **Prioridade de Correção** | **Status** |
+| -------------------  |  ------------------------  |  --------  |
+|         Média         |            Média           |  Corrigido |
+
+| **Passo a passo para simular o bug**                         |
+| ------------------------------------------------------------ |
+| 1. Acessar a área de paciente                                |
+| 2. Ir até a listagem de orçamentos                          |
+| 3. Observar a ordem em que os orçamentos são exibidos        |
+| 4. Notar que orçamentos antigos aparecem antes dos recentes  |
+
+|                                       **Comportamento Esperado**                                       |                   **Comportamento Obtido**                  |
+| ----------------------------------------------------------------------------------------------------     | -------------------------------------------------------- |
+| Os orçamentos devem ser exibidos em **ordem decrescente por data**, mostrando primeiro o mais recente. | O sistema exibe orçamentos mais antigos antes dos recentes. |
+
+
+
+| **Ambiente**                      |
+| --------------------------------- |
+| Áreas de Paciente                  |
+| Navegador: Chrome / Edge          |
+| Sistema: Windows 11              |
+
+|                     **Evidência(s)**                    |
+| -----------------------------------------------------   |
+| (print da listagem de orçamentos fora de ordem)         |
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
