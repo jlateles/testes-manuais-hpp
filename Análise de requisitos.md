@@ -245,3 +245,135 @@ A tela `Detalhes do Orçamento` é dividida em cards informativos, que devem ser
   - Mensagem sobre o status da transação: `Aprovado`, `Aguardando` e `Recusado`
 ---
 ## RF04 Área de Administração 
+> Observação: A área de administração é destinada exclusivamente a usuários administradores, responsáveis pela criação, gerenciamento e acompanhamento dos orçamentos realizados na plataforma.
+
+**Acesso à Área de Administração**
+Fluxo de acesso:
+  - usuário deve rolar a homepage até o final e clicar no botão azul “Administração”
+  - O botão “Administração” é de uso exclusivo para logins de administradores
+  - O usuário é redirecionado para a tela de login de administrador
+
+**Tela de login**
+Campos e elementos obrigatórios:
+  - `Campo Login`: deve aceitar caracteres alfanuméricos.
+  - `Campo Senha`: campo do tipo senha (com máscara para os caracteres digitados).
+  - Botão “Entrar na conta”
+Mensagens esperadas:
+  - Em caso de sucesso: modal com mensagem "Login concluído. Seja bem-vindo!"
+  - Em caso de erro: modal com mensagem "Login ou senha inválidos. Tente novamente!"
+
+**Layout geral da área de admin - (após login realizado)** 
+
+Header fixo:
+  - Título da tela (Orçamentos, Relatórios, Cadastros ou Configurações)
+  - Ícone de usuário: redireciona para tela de Configurações
+  - Ícone de casa: retorna à homepage da plataforma
+Sidebar (menu lateral):
+  - Orçamentos (tela principal)
+  - Relatórios
+  - Cadastros
+  - Configurações
+  - Sair da conta: encerra a sessão e redireciona para a homepage
+  - Campo inferior: Usuário: [nome do admin] (exemplo: Usuário: Admin Unidade Clínica SP)
+
+`Comportamento esperado:` menu retrátil, abrindo e fechando ao clicar na seta superior.
+
+**Tela Principal – Orçamentos**
+Funcionalidade: exibir e gerenciar todos os orçamentos criados na plataforma.
+
+Filtros e elementos da tela:
+  - Filtro por Mês:
+      - Opções: “Mês Atual”, “Último Mês”, “Últimos três meses”
+  - Filtro por Período:
+      - Campo de data (ex.: 01/11/2025 - 10/11/2025)
+      - Ícone de calendário para seleção de intervalo personalizado
+  - Cards:
+      1. Total de orçamentos pagos
+      2. Valor recebido (somatório dos orçamentos pagos)
+      3. Valor a receber (somatório dos orçamentos pendentes)
+      4. Total de orçamentos enviados
+  - Barra de pesquisa: *“Busque por um nome ou código"*
+  - Filtros adicionais (select):
+      - Login: lista de todos os logins de administradores
+      - Status pagamento: “Todos”, “Pago”, “Estornado”, “Pendente”, “Expirado”
+      - Status orçamento: “Todos”, “Enviado”, “Salvo”, “Expirado”, “Confirmado”, “Cancelado”
+      - Botão “Limpar filtros” → restaura a listagem completa
+  - Contagem de resultados: ex.: “16 Resultado(s)”
+  - Botões principais:
+      - “REENVIAR” → reenviar orçamento selecionado(s) ao paciente
+      - “NOVO ORÇAMENTO” → abre formulário de criação de novo orçamento
+  - Listagem de orçamentos:
+      - Elementos do topo da listagem:
+          - Checkbox para seleção múltipla de orçamentos
+          - Unidade, Paciente, Obrigação, Valor total, Status orçamento, Data de pagamento, Status pagamento, Operador (login)
+  - Ações disponíveis:
+      - “Visualizar orçamento” (ícone de seta para baixo)
+      - Paginação: exibe resultados limitados por página (ex: “1 de 4 > >>”)
+
+**Tela de Novo Orçamento**
+> Tela de criação e envio de novos orçamentos aos pacientes.
+
+Estrutura: 
+  - Botão de retorno: ícone “<” (volta à tela principal de orçamentos)
+  - Título da tela: “Novo orçamento”
+
+Campos do Formulário:
+  - Campo select: “Selecione a empresa”
+      - Lista de unidades disponíveis
+  - Dados do paciente:
+      - Campos: CPF, Nome completo, E-mail, Confirmação de e-mail, Telefone, Data de nascimento, Sexo (select), CEP, Número, Estado, Bairro, Cidade, Endereço, Complemento
+      - Botão Cadastrar ou Atualizar, dependendo se o paciente já existe
+          - Comportamento esperado: ao inserir o CPF, se o paciente já existir, seus dados são carregados automaticamente
+          - Modais esperados: sucesso e erro nas operações
+  - Selecione o responsável financeiro
+      - Duas opções do tipo radio:
+          - “Paciente será o responsável financeiro”
+          - “Adicionar um responsável financeiro”
+      - Caso seja escolhida a segunda opção:
+          - Abre o card “Dados do responsável financeiro”, com os mesmos campos do paciente
+          - Botão Cadastrar ou Atualizar, conforme o caso
+          - Comportamento esperado: carregamento automático via CPF se já houver responsável cadastrado
+      - Caso seja escolhida a primeira opção:
+          - O form de responsável não deve ser exibido.
+  - Procedimentos:
+      - Barra de pesquisa: “Digite o código ou nome do procedimento”
+      - Campo “Valor (R$)”
+      - Botão “Adicionar” (inclui o procedimento na lista “Procedimentos adicionados”)
+      - Campo (obrigatório) “Observações”
+      - Botões:
+          - Cancelar → descarta o orçamento e volta à tela principal
+          - Finalizar → abre o modal de finalização
+      - Modal de Finalização:
+          - “Como deseja finalizar o orçamento?”
+              - Enviar orçamento: envia ao email do paciente
+              - Salvar orçamento → mantém como rascunho na listagem da tela principal
+          - Ambos devem gerar modais de sucesso ou erro conforme o resultado da operação.
+      
+**Tela de Relatórios**
+> Destinada à exportação e visualização de relatórios de orçamentos
+
+Opções disponíveis:
+  1. Relatórios de orçamentos em PDF
+       - Ação: visualizar e/ou baixar (download)
+       - Campo de seleção de período via calendário
+  2. Relatórios de orçamentos em CSV
+       - Ação: baixar (download)
+       - Campo de seleção de período via calendário
+
+**Tela de Configurações**
+> Disponível através do ícone de usuário no header ou no sidebar (menu lateral)
+
+Função: redefinir senha do administrador
+Campos
+  - senha atual, nova senha e confirmação de senha
+  - Mensagens de aviso:
+      - “Sua nova senha precisa ser diferente de senhas anteriores.”
+      - "Sua senha deve conter letras maiúsculas, minúsculas, números e caracteres especiais."
+      - "Mínimo de 8 caracteres"
+  - Comportamento esperado:
+      - Campos devem ter máscara de senha
+      - Ícone de olho para visualização opcional
+      - Botão “Alterar senha” para confirmar a redefinição
+
+
+
