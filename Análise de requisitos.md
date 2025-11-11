@@ -362,18 +362,5 @@ Opções disponíveis:
 
 **Tela de Configurações**
 > Disponível através do ícone de usuário no header ou no sidebar (menu lateral)
-
 Função: redefinir senha do administrador
-Campos
-  - senha atual, nova senha e confirmação de senha
-  - Mensagens de aviso:
-      - “Sua nova senha precisa ser diferente de senhas anteriores.”
-      - "Sua senha deve conter letras maiúsculas, minúsculas, números e caracteres especiais."
-      - "Mínimo de 8 caracteres"
-  - Comportamento esperado:
-      - Campos devem ter máscara de senha
-      - Ícone de olho para visualização opcional
-      - Botão “Alterar senha” para confirmar a redefinição
-
-
 
