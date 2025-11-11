@@ -11,7 +11,6 @@
 ## 2. Objetivo:
 > Validar as funcionalidades e fluxos principais do sistema, garantindo que os comportamentos estejam de acordo com os requisitos definidos e que as informações sejam exibidas corretamente.
 
-
 ## 3. Escopo 
 Os teste svão cobrir: 
   - Acesso à plataforma (homepage)
@@ -29,7 +28,7 @@ O que não vai ser testado no momento:
 ## 4. Pré-requisitos gerais
   - O paciente deve possuir cadastro prévio com CPF e senha
   - Deve haver orçamentos associados ao CPF do paciente para exibição nas listagens
-
+---
 ## 5. Ferramentas Utilizadas
   - Navegador Google Chrome / Edge
   - Ferramentas de inspeção do navegador (DevTools)
@@ -62,8 +61,6 @@ O que não vai ser testado no momento:
 | Registro e Report de Bugs   | 17/10/2025  |     -      |
 | Encerramento e Evidências   | 13/05/2025  |     -      |
 
-
-
 ### 10. **Módulos para serem testados**
 
 | Código RF | Módulo                   | Prioridade |
@@ -74,7 +71,6 @@ O que não vai ser testado no momento:
 | RF04      | Área de Administração    |    Alta    |
 | RF05      | Pagamento                |    Alta   |
 
----
 
 ### 11. **Gestão de Defeitos**
 
