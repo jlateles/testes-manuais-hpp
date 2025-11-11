@@ -173,7 +173,30 @@ O que não vai ser testado no momento:
 
 ### Área de Administração 
 
----
+**Login Admin** 
+| ID     | Cenário de Teste                    | Pré-condição                    | Passos                                                                                                      | Resultado Esperado                                        |
+| ------ | ----------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| CT-043 | Login válidos       | Ter um usuário admin cadastrado | 1. Acessar a página de login da administração<br>2. Inserir login e senha válidos<br>3. Clicar em “Entrar” | O sistema deve autenticar e redirecionar o usuário para a tela de orçamentos |
+| CT-044| Login inválidos     | —                               | 1. Inserir login e/ou senha incorretos<br>2. Clicar em “Entrar”                                            | Exibir mensagem de erro “Login ou senha inválidos”           |
+| CT-045 | Campos obrigatórios não preenchidos | —                               | 1. Clicar em “Entrar” sem preencher campos                                                                  | Exibir mensagem de aviso que os campos de login e senha são obrigatórios        |
+| CT-046 | Logout do sistema                   | Usuário logado como admin       | 1. Clicar em “Sair” ou ícone correspondente                                                                 | Sistema deve encerrar a sessão e redirecionar para a homepage              |
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 ### Pagamento 
 
